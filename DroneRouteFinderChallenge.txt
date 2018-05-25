@@ -1,0 +1,48 @@
+Navigating a Drone through an Airport
+1.0 Problem Description
+The goal is to navigate a drone through an airport in the shortest time possible. The airport is
+composed of several interconnected circular roads, and the drone’s position is described by a
+road name and the degrees clockwise around the road’s circumference. The drone can transfer
+between roads at points of intersection. An example is illustrated below.
+
+The drone is operated using 4 commands:
+
+GO: The drone accelerates at 1 m/s​ 2​ , with a maximum speed of 4 m/s.
+
+STOP: The drone decelerates at 1 m/s​ 2​ until it has stopped.
+
+REVERSE: If clockwise the drone will face counterclockwise, and vice versa.
+This operation takes 0.3 seconds to complete and can only be
+issued when the drone is at rest.
+
+TRANSFER: [road id] The drone changes roads. This operation can only be issued when
+the drone is located at a point of intersection.
+This operation takes 0.1 seconds to complete.
+
+
+2.0 Program Input
+Your program will receive a set of circular roads, a set of intersections, an initial
+position/orientation, and a destination. The exact format is described below.
+
+[number of roads]
+[road] [radius in meters] [number of intersecting roads]
+...
+[total number of intersections across all roads]
+[road_1] [point of intersection on road_1] [road_2] [point of intersection on road_2]
+...
+[initial road] [initial position] [initial orientation]
+[destination road] [destination position]
+
+see test_data.txt to see a example for this format
+
+3.0 Program Output
+Your program should output the minimum time in seconds (to one decimal place) required to
+travel from the initial position to the final position, along with the commands required to achieve
+that time. The drone does not need stop at the destination, just drive through it.
+
+Example:
+27.1
+GO (25.0)
+TRANSFER B (0.1)
+GO (2.0)
+
