@@ -433,7 +433,7 @@ class Graph:
                         connections[other_node.id] = utils.get_arc_len(self.airport, node, other_node, point)
             self.graph[node.id] = connections
 
-    def run_dijkstra(self, graph, src, dest, visited=[], distances={}, predecessors={}):
+    def run_dijkstra(self, graph, src, dest, visited=None, distances=None, predecessors=None):
         """
         Runs dijkstra's algorithm to find shortest path for given source and destination
 
@@ -441,6 +441,9 @@ class Graph:
         :param src: starting waypoint
         :param dest: finishing waypoint
         """
+        visited = [] if visited is None else visited
+        distances = {} if distances is None else distances
+        predecessors = {} if predecessors is None else predecessors
         # a few sanity checks
         if src not in graph:
             raise TypeError('The root of the shortest path tree cannot be found')
